@@ -43,8 +43,14 @@ final class ConfigurationStore: ObservableObject {
 
 	init(baseFolder: URL? = nil) {
 		if let baseFolder { self.baseURL = baseFolder } else {
-			self.baseURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-				.appendingPathComponent("MacPie", isDirectory: true)
+			guard let appSupportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {
+				NSLog("MacPie: Failed to access application support directory")
+				// Fallback to user's home directory
+				self.baseURL = FileManager.default.homeDirectoryForCurrentUser
+					.appendingPathComponent("Library/Application Support/MacPie", isDirectory: true)
+				return
+			}
+			self.baseURL = appSupportURL.appendingPathComponent("MacPie", isDirectory: true)
 		}
 		try? FileManager.default.createDirectory(at: appsDir, withIntermediateDirectories: true)
 		try? FileManager.default.createDirectory(at: iconsDir, withIntermediateDirectories: true)

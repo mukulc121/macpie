@@ -64,7 +64,14 @@ final class ActionEngine {
     private func selectMenuItem(path: [String], bundleId: String) {
         guard let running = NSRunningApplication.runningApplications(withBundleIdentifier: bundleId).first,
               let appName = running.localizedName else { return }
-        let pathScript = path.map { "\"\($0)\"" }.joined(separator: ", ")
+        // Path script for debugging (commented out to avoid unused variable warning)
+        // let pathScript = path.map { "\"\($0)\"" }.joined(separator: ", ")
+        // Validate path has at least 2 elements
+        guard path.count >= 2 else {
+            NSLog("Menu selection failed: invalid path length %d", path.count)
+            return
+        }
+        
         let script = """
         tell application "System Events"
             tell process "\(appName)"

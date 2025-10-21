@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct MacPieApp: App {
     @StateObject private var coordinator = AppCoordinator()
+    @StateObject private var splashController = SplashScreenController()
 
     var body: some Scene {
         MenuBarExtra("MacPie", systemImage: "circle.grid.2x2") {
@@ -25,6 +26,20 @@ struct MacPieApp: App {
             ContentView()
                 .frame(width: 1, height: 1)
                 .hidden()
+                .onAppear {
+                    // Show splash screen and open preferences after a delay
+                    showSplashAndPreferences()
+                }
         }.windowStyle(.hiddenTitleBar)
+    }
+    
+    private func showSplashAndPreferences() {
+        // Show splash screen immediately and then open preferences
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            splashController.showSplash()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                coordinator.openPreferences()
+            }
+        }
     }
 }

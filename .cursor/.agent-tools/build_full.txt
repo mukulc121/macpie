@@ -1,0 +1,88 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project MacPie.xcodeproj -scheme MacPie -configuration Debug build
+
+2025-10-19 12:15:50.679 xcodebuild[48623:1756130]  DVTDeviceOperation: Encountered a build number "" that is incompatible with DVTBuildVersion.
+2025-10-19 12:15:50.750 xcodebuild[48623:1756094] [MT] DVTDeviceOperation: Encountered a build number "" that is incompatible with DVTBuildVersion.
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00006020-000269511AD3C01E, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00006020-000269511AD3C01E, name:My Mac }
+{ platform:macOS, name:Any Mac }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'MacPie' in project 'MacPie' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 9b870c91706f141a30afe916fe3824c5
+Build description path: /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/XCBuildData/9b870c91706f141a30afe916fe3824c5.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk /Users/apple/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx15.5-24F74-8254517eb8b97d462ccbc072ba9094c9.sdkstatcache
+    cd /Users/apple/Documents/Development/MacPie/MacPie.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -o /Users/apple/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx15.5-24F74-8254517eb8b97d462ccbc072ba9094c9.sdkstatcache
+
+WriteAuxiliaryFile /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.LinkFileList (in target 'MacPie' from project 'MacPie')
+    cd /Users/apple/Documents/Development/MacPie
+    write-file /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.LinkFileList
+
+WriteAuxiliaryFile /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.SwiftConstValuesFileList (in target 'MacPie' from project 'MacPie')
+    cd /Users/apple/Documents/Development/MacPie
+    write-file /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.SwiftFileList (in target 'MacPie' from project 'MacPie')
+    cd /Users/apple/Documents/Development/MacPie
+    write-file /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.SwiftFileList
+
+SwiftDriver MacPie normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MacPie' from project 'MacPie')
+    cd /Users/apple/Documents/Development/MacPie
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MacPie -Onone -enforce-exclusivity\=checked @/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -target arm64-apple-macos15.5 -g -module-cache-path /Users/apple/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Index.noindex/DataStore -swift-version 5 -I /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Products/Debug -F /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/apple/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx15.5-24F74-8254517eb8b97d462ccbc072ba9094c9.sdkstatcache -output-file-map /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/apple/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie_const_extract_protocols.json -Xcc -iquote -Xcc /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-generated-files.hmap -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-own-target-headers.hmap -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-all-target-headers.hmap -Xcc -iquote -Xcc /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-project-headers.hmap -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Products/Debug/include -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/DerivedSources-normal/arm64 -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/DerivedSources/arm64 -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie-Swift.h -working-directory /Users/apple/Documents/Development/MacPie -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ MacPie (in target 'MacPie' from project 'MacPie')
+
+EmitSwiftModule normal arm64 (in target 'MacPie' from project 'MacPie')
+    cd /Users/apple/Documents/Development/MacPie
+    
+/Users/apple/Documents/Development/MacPie/MacPie/PreferencesViews.swift:1992:1: error: extraneous '}' at top level
+}
+^
+/Users/apple/Documents/Development/MacPie/MacPie/PreferencesViews.swift:1957:9: error: expected declaration
+        .frame(width: 377)
+        ^
+/Users/apple/Documents/Development/MacPie/MacPie/PreferencesViews.swift:1888:8: note: in declaration of 'PiePanelView'
+struct PiePanelView: View {
+       ^
+
+Failed frontend command:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -emit-module -experimental-skip-non-inlinable-function-bodies-without-types /Users/apple/Documents/Development/MacPie/MacPie/ContentView.swift /Users/apple/Documents/Development/MacPie/MacPie/SplashScreenView.swift /Users/apple/Documents/Development/MacPie/MacPie/PreferencesWindow.swift /Users/apple/Documents/Development/MacPie/MacPie/AppIconProvider.swift /Users/apple/Documents/Development/MacPie/MacPie/AppCoordinator.swift /Users/apple/Documents/Development/MacPie/MacPie/PermissionsManager.swift /Users/apple/Documents/Development/MacPie/MacPie/MacPieApp.swift /Users/apple/Documents/Development/MacPie/MacPie/HotkeyManager.swift /Users/apple/Documents/Development/MacPie/MacPie/StatusBarController.swift /Users/apple/Documents/Development/MacPie/MacPie/ConfigurationStore.swift /Users/apple/Documents/Development/MacPie/MacPie/SplashScreenController.swift /Users/apple/Documents/Development/MacPie/MacPie/PreferencesViews.swift /Users/apple/Documents/Development/MacPie/MacPie/AppDiscovery.swift /Users/apple/Documents/Development/MacPie/MacPie/PieOverlay.swift /Users/apple/Documents/Development/MacPie/MacPie/ActionEngine.swift /Users/apple/Documents/Development/MacPie/MacPie/MenuIntrospection.swift /Users/apple/Documents/Development/MacPie/MacPie/HoverTrackingView.swift /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/DerivedSources/GeneratedAssetSymbols.swift -target arm64-apple-macos15.5 -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -I /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Products/Debug -F /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Products/Debug -no-color-diagnostics -enable-testing -g -debug-info-format\=dwarf -dwarf-version\=5 -module-cache-path /Users/apple/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -profile-generate -profile-coverage-mapping -swift-version 5 -enforce-exclusivity\=checked -Onone -D DEBUG -serialize-debugging-options -const-gather-protocols-file /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie_const_extract_protocols.json -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /Users/apple/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /Users/apple/Documents/Development/MacPie -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift -enable-anonymous-context-mangled-names -file-compilation-dir /Users/apple/Documents/Development/MacPie -Xcc -ivfsstatcache -Xcc /Users/apple/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx15.5-24F74-8254517eb8b97d462ccbc072ba9094c9.sdkstatcache -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-generated-files.hmap -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-own-target-headers.hmap -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-all-target-headers.hmap -Xcc -iquote -Xcc /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/MacPie-project-headers.hmap -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Products/Debug/include -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/DerivedSources-normal/arm64 -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/DerivedSources/arm64 -Xcc -I/Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/DerivedSources -Xcc -DDEBUG\=1 -module-name MacPie -frontend-parseable-output -disable-clang-spi -target-sdk-version 15.5 -target-sdk-name macosx15.5 -external-plugin-path /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server -external-plugin-path /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/local/lib/swift/host/plugins\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server -in-process-plugin-server-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/lib/swift/host/plugins -emit-module-doc-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.swiftdoc -emit-module-source-info-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.swiftsourceinfo -emit-objc-header-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie-Swift.h -serialize-diagnostics-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie-master-emit-module.dia -emit-dependencies-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie-master-emit-module.d -o /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.swiftmodule -emit-abi-descriptor-path /Users/apple/Library/Developer/Xcode/DerivedData/MacPie-cdmyfkoybkofpednonatcldhmejv/Build/Intermediates.noindex/MacPie.build/Debug/MacPie.build/Objects-normal/arm64/MacPie.abi.json
+SwiftCompile normal arm64 Compiling\ PreferencesViews.swift /Users/apple/Documents/Development/MacPie/MacPie/PreferencesViews.swift (in target 'MacPie' from project 'MacPie')
+SwiftCompile normal arm64 /Users/apple/Documents/Development/MacPie/MacPie/PreferencesViews.swift (in target 'MacPie' from project 'MacPie')
+    cd /Users/apple/Documents/Development/MacPie
+    
+
+** BUILD FAILED **
+
+
+The following build commands failed:
+	EmitSwiftModule normal arm64 (in target 'MacPie' from project 'MacPie')
+	SwiftEmitModule normal arm64 Emitting\ module\ for\ MacPie (in target 'MacPie' from project 'MacPie')
+	Building project MacPie with scheme MacPie and configuration Debug
+(3 failures)

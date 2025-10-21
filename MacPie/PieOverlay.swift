@@ -23,11 +23,7 @@ struct PieOverlayView: View {
 			ForEach(slices) { slice in
 				segment(for: slice)
 			}
-			Circle()
-				.fill(.ultraThinMaterial)
-                .frame(width: size * 0.7333, height: size * 0.7333)
-				.overlay(Circle().stroke(.white.opacity(0.2), lineWidth: 1))
-				.allowsHitTesting(false)
+			// Removed center circle to show icons properly
             
             // Show command name in center when hovering
             if let hoveredIndex = hoveredIndex, 
@@ -68,9 +64,7 @@ struct PieOverlayView: View {
 		let shape = PieShape(startAngle: start, endAngle: end)
 		let isHovered = hoveredIndex == slice.index
 		
-		// Debug logging for slice creation
-		NSLog("Creating slice %d: start=%.1f°, end=%.1f°, isHovered=%@", 
-			  slice.index, start.degrees, end.degrees, isHovered.description)
+		// Slice creation for index \(slice.index)
 		
 		return ZStack {
 			shape
@@ -78,23 +72,22 @@ struct PieOverlayView: View {
 				.overlay(shape.stroke(isHovered ? Color.accentColor.opacity(0.6) : Color.white.opacity(0.2), lineWidth: isHovered ? 2 : 1))
                 .contentShape(shape)
 
-			// Icon only, positioned toward the middle of the slice
+			// Icon positioned in the center of the slice
 			Group {
 				if let img = slice.nsImage {
 					Image(nsImage: img)
 						.resizable()
 						.aspectRatio(contentMode: .fit)
-						.frame(width: 22, height: 22)
-						.foregroundStyle(.primary)
+						.frame(width: 28, height: 28)
+						.foregroundStyle(.white)
 				} else if let icon = slice.iconName, !icon.isEmpty {
 					Image(systemName: icon)
-						.font(.system(size: 18, weight: .semibold))
-						.foregroundStyle(.primary)
+						.font(.system(size: 24, weight: .semibold))
+						.foregroundStyle(.white)
 				}
 			}
-			.rotationEffect(.degrees(Double(slice.index) * anglePer))
-			.offset(x: 95)
-			.rotationEffect(.degrees(-Double(slice.index) * anglePer))
+			.offset(x: 75) // Position icon further out for better visibility
+			.rotationEffect(.degrees(Double(slice.index) * anglePer + anglePer / 2)) // Rotate to center of slice
 
 			// No labels or keystroke badges — icon only
 		}
@@ -143,7 +136,7 @@ struct PieShape: Shape {
 		var path = Path()
 		let center = CGPoint(x: rect.midX, y: rect.midY)
 		let radiusOuter = min(rect.width, rect.height) / 2
-		let radiusInner = radiusOuter * 0.4
+		let radiusInner = radiusOuter * 0.2
 		path.addArc(center: center, radius: radiusOuter, startAngle: startAngle, endAngle: endAngle, clockwise: false)
 		path.addArc(center: center, radius: radiusInner, startAngle: endAngle, endAngle: startAngle, clockwise: true)
 		path.closeSubpath()

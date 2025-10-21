@@ -68,9 +68,18 @@ final class AppCoordinator: ObservableObject {
             return app
         }
         
-        // Try name-based matching as fallback
+        // Try name-based matching as fallback (case-insensitive)
         if let app = store.apps.first(where: { $0.name.lowercased() == appName.lowercased() }) {
             NSLog("Found app profile by name: \(app.name)")
+            return app
+        }
+        
+        // Try partial name matching for apps like "Figma" vs "Figma.app"
+        if let app = store.apps.first(where: { 
+            appName.lowercased().contains($0.name.lowercased()) || 
+            $0.name.lowercased().contains(appName.lowercased())
+        }) {
+            NSLog("Found app profile by partial name match: \(app.name)")
             return app
         }
         
@@ -85,20 +94,28 @@ final class AppCoordinator: ObservableObject {
             NSLog("Creating overlay for profile: \(profile.name)")
             NSLog("Profile has \(profile.availableCommands.count) available commands")
             NSLog("Profile pie slots: \(profile.pieSlots)")
-            slices = (0..<8).map { idx in
-                if let actId = profile.pieSlots[idx], let cmd = profile.availableCommands.first(where: { $0.actionId == actId }) {
-                    let symbol = (cmd.icon?.kind == .sfSymbol) ? cmd.icon?.name : nil
-                    let nsImage = (cmd.icon?.kind == .custom) ? store.image(for: cmd.icon) : nil
-                    NSLog("Slot \(idx): \(cmd.label) (actionId: \(actId))")
-                    return PieSlice(index: idx, label: cmd.label, iconName: symbol, keystrokeDisplay: cmd.keystrokeDisplay, nsImage: nsImage)
-                } else {
-                    NSLog("Slot \(idx): empty")
-                    return PieSlice(index: idx, label: "")
+            
+            // Only create slices for slots that have commands assigned
+            let assignedSlots = profile.pieSlots.keys.sorted()
+            if assignedSlots.isEmpty {
+                NSLog("No commands assigned to pie slots")
+                slices = []
+            } else {
+                slices = assignedSlots.map { idx in
+                    if let actId = profile.pieSlots[idx], let cmd = profile.availableCommands.first(where: { $0.actionId == actId }) {
+                        let symbol = (cmd.icon?.kind == .sfSymbol) ? cmd.icon?.name : nil
+                        let nsImage = (cmd.icon?.kind == .custom) ? store.image(for: cmd.icon) : nil
+                        NSLog("Slot \(idx): \(cmd.label) (actionId: \(actId), icon: \(cmd.icon?.name ?? "nil"), kind: \(cmd.icon?.kind.rawValue ?? "nil"), nsImage: \(nsImage != nil ? "loaded" : "nil"))")
+                        return PieSlice(index: idx, label: cmd.label, iconName: symbol, keystrokeDisplay: cmd.keystrokeDisplay, nsImage: nsImage)
+                    } else {
+                        NSLog("Slot \(idx): empty (no actionId or command)")
+                        return PieSlice(index: idx, label: "")
+                    }
                 }
             }
         } else {
             NSLog("No profile found, creating empty overlay")
-            slices = (0..<8).map { PieSlice(index: $0, label: "") }
+            slices = []
         }
         overlay = PieOverlayController(slices: slices, onSelect: { [weak self] index in
             self?.handleSelection(index: index)
